@@ -8,7 +8,9 @@ $fp = @fsockopen($site, $port, $errno, $errstr, 2);
 if (!$fp) {
     // echo "HOST ".$status[0]."<br>"; 
      $webhookurl = "discordwebhookurlofchannel";
- $msg = "HOST ".$status[0]."";
+// $msg = "HOST ".$status[0]."";
+     $msg = "```diff
+- HOST ".$status[0]." at ".date("l").", ".date("d F 20y")."```";
 $json_data = array ('content'=>"$msg");
 $make_json = json_encode($json_data);
 $ch = curl_init( $webhookurl );
@@ -24,7 +26,9 @@ $response = curl_exec( $ch );
   { 
    //   echo "HOST ".$status[1]."<br>"; 
      $webhookurl = "discordwebhookurlofchannel";
-      $msg = "Host ".$status[1]."";
+     // $msg = "Host ".$status[1]."";
+      $msg = "```diff
++ Host ".$status[1]." at ".date("l").", ".date("d F 20y")."```";
 $json_data = array ('content'=>"$msg");
 $make_json = json_encode($json_data);
 $ch = curl_init( $webhookurl );
